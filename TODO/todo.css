@@ -1,0 +1,13 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list {
+  margin: 0;
+}
+
+.todoEl {
+  display: flex;
+}
