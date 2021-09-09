@@ -1,0 +1,117 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
+  width: 1200px;
+  margin: 50px;
+  background: url(img/game-background.png)center/cover
+}
+
+.game-info {
+  text-align: center;
+  transform: translateY(80%);
+}
+
+.start-btn {
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 50px;
+  color: rgb(255, 156, 35);
+
+}
+
+.timer {
+  height: 40px;
+  width: 80px;
+  margin-bottom: 10px;
+  border: solid rgb(255, 187, 61) 8px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: wheat;
+
+}
+
+.score {
+  background-color: blanchedalmond;
+  border-radius: 20px;
+  border: solid rgb(255, 168, 6) 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  transform: translate(60%,-200%);
+  border-radius: 30px;
+  background-color: sandybrown;
+}
+
+.radio-intro-img {
+  width: 80px;
+  height: 90px;
+  padding: 20px;
+  /* margin-left: 20px; */
+  margin: 10px;
+  border:solid rgb(255, 226, 188) 8px;
+  border-radius: 15px;
+  background-color: rgb(255, 200, 98);
+}
+
+.intro-text {
+  font-weight: 600;
+}
+
+.intro-hide {
+  visibility: hidden;
+}
+
+.game-field {
+  position: relative;
+  margin-top: 330px;
+  height: 100%;
+  width: 100%;
+  /* background-color: thistle; */
+}
+
+.smiley,
+.radio,
+.flower,
+.egg {
+  height: 90px;
+  width: 70px;
+}
+
+.pop-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+  width: 300px;
+  height: 200px;
+  border-radius: 30px;
+  transform: translate(170%,-250%);
+  background-color: rgba(32, 124, 112, 0.8);
+}
+
+.pop-up-hide {
+  visibility: hidden;
+}
+
+.restart-btn {
+  height: 50%;
+  margin-top: 10px;
+  border: none;
+  font-size: 60px;
+  color: rgb(255, 226, 188);
+  background-color: transparent;
+}
+
+.pop-up-message {
+  font-size: 30px;
+  color: rgb(255, 221, 176);
+}
