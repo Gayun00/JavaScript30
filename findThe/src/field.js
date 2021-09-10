@@ -5,7 +5,9 @@ export default class Field {
     this.item_count = 5;
     this.$gameField = document.querySelector(".game-field");
     this.$fieldRect = this.$gameField.getBoundingClientRect();
+    this.onClick = this.onClick.bind(this);//this 바인딩
     this.$gameField.addEventListener("click", this.onClick);
+  //this.onclick의 클래스 정보는 콜백으로 전달되지 않는다.
   }
 
   onClick(ev) {
@@ -13,6 +15,8 @@ export default class Field {
     if (target.matches(".radio")) {
       target.remove();
       this.onItemClick && this.onItemClick('radio');
+      //클래스 정보가 함께 전달되지 않기 떄문에 다른곳으로 전달될 떄this값은 undefined가 된다.
+      //this바인딩이 필요하다.
     } else {
     }
       stopGame();
