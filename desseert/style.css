@@ -47,7 +47,7 @@ button {
   background-color:wheat;
 }
 
-.img-section {
+.item-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,9 +58,20 @@ button {
   /* background-color: darkgoldenrod; */
 }
 
-.img-container {
+.item-container {
+  text-align: center;
   width: 140px;
   height: 140px;
   margin: 10px;
   background-color: thistle;
+}
+
+.item-img {
+  width: 80%;
+  height: 80%;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-around;
 }
