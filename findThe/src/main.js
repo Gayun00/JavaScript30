@@ -116,8 +116,6 @@ function clickItem(ev) {
   $score.innerText = `${SCORE}`;
 }
 
-
-
 function stopGame() {
   gameFinishBanner.showWithText('replay?');
 }
@@ -128,10 +126,6 @@ function reStartGame() {
   gameFinishBanner.hide();
   updateTimerAndScore();
 }
-
-
-
-
 
 function updateTimerAndScore() {
   TIME = 10;
