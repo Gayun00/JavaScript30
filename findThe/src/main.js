@@ -1,3 +1,6 @@
+
+import PopUp from "./popup.js";
+
 const ITEM_COUNT = 5;
 const ITEM_SIZE = 110;
 
@@ -7,18 +10,20 @@ let started = false;
 
 const $intro = document.querySelector(".intro");
 const $startBtn = document.querySelector(".start-btn");
-const $restartBtn = document.querySelector(".restart-btn");
+
 const $timer = document.querySelector(".timer");
 const $score = document.querySelector(".score");
 
 const $gameField = document.querySelector(".game-field");
 const $fieldRect = $gameField.getBoundingClientRect();
 
-const $popUp = document.querySelector(".pop-up");
-const $popUpText = document.querySelector(".pop-up-message");
+const gameFinishBanner = new PopUp();
+gameFinishBanner.setClickListener(() => {
+  startGame();
+})
 
 $startBtn.addEventListener("click", startOrStop);
-$restartBtn.addEventListener("click", reStartGame);
+
 $gameField.addEventListener("click", clickItem);
 
 function startOrStop() {
@@ -106,7 +111,7 @@ function clickItem(ev) {
   if (SCORE < 0 || TIME ===0) {
     stopGame();
   } else if (SCORE === ITEM_COUNT - 1) {
-    showPopUpWithText('won!')
+    gameFinishBanner.showWithText('won!')
   };
   $score.innerText = `${SCORE}`;
 }
@@ -114,26 +119,19 @@ function clickItem(ev) {
 
 
 function stopGame() {
-  
-  showPopUpWithText('replay?');
+  gameFinishBanner.showWithText('replay?');
 }
 
 function reStartGame() {
   started = false;
   startOrStop();
-  hidePopUp();
+  gameFinishBanner.hide();
   updateTimerAndScore();
 }
 
-function showPopUpWithText(text) {
-  $popUpText.innerText = text;
-  $popUp.classList.remove('pop-up-hide');
 
-}
 
-function hidePopUp() {
-  $popUp.classList.add("pop-up-hide");
-}
+
 
 function updateTimerAndScore() {
   TIME = 10;
