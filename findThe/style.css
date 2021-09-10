@@ -48,7 +48,7 @@
   width: 600px;
   transform: translate(60%,-200%);
   border-radius: 30px;
-  background-color: sandybrown;
+  background-color: rgb(255, 181, 117, 0.8);
 }
 
 .radio-intro-img {

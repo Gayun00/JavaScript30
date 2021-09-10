@@ -79,9 +79,10 @@ function showTimerAndScore() {
 }
 
 function startTimer(time) {
-  timer = setInterval(() => {
+  const timer = setInterval(() => {
     if(time === 0){
       stopGame();
+      clearInterval(timer);
       return;
     } else {
     time--;
@@ -104,14 +105,16 @@ function clickItem(ev) {
   }
   if (SCORE < 0 || TIME ===0) {
     stopGame();
-  } else (SCORE === ITEM_COUNT - 1);
+  } else if (SCORE === ITEM_COUNT - 1) {
+    showPopUpWithText('won!')
+  };
   $score.innerText = `${SCORE}`;
 }
 
 
 
 function stopGame() {
-  clearInterval(timer)
+  
   showPopUpWithText('replay?');
 }
 
