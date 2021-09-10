@@ -5,13 +5,12 @@ export default class Field {
     this.item_count = 5;
     this.$gameField = document.querySelector(".game-field");
     this.$fieldRect = this.$gameField.getBoundingClientRect();
-    // this.onClick = this.onClick.bind(this);//this 바인딩
-    this.$gameField.addEventListener("click", (event) => this.onClick(event));
-    //arrow function은 this가 유지된다.
+    this.$gameField.addEventListener("click", this.onClick);
+
   //this.onclick의 클래스 정보는 콜백으로 전달되지 않는다.
   }
 
-  onClick(ev) {
+  onClick = ev => {//onclick을 멤버 변수로 만든다.
     const target = ev.target;
     if (target.matches(".radio")) {
       target.remove();
