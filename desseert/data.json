@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "type": "bread",
+      "mall": "림스몰",
+      "title": "푸른셔츠",
+      "price": "9900",
+      "image": "img/bread.png"
+    },
+    {
+      "type": "bread",
+      "mall": "벨벳데이즈",
+      "title": "푸른하늘색(귀염밴딩)",
+      "price": "22,800",
+      "image": "img/bread2.png"
+    },
+    {
+      "type": "bread",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/bread3.png"
+    },
+    {
+      "type": "scorn",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/scorn.png"
+    },
+    {
+      "type": "scorn",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/scorn2.png"
+    },
+    {
+      "type": "scorn",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/scorn3.png"
+    },
+    {
+      "type": "cake",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/cake.png"
+    },
+    {
+      "type": "cake",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/cake2.png"
+    },
+    {
+      "type": "cake",
+      "mall": "시크릿라벨",
+      "title": "스커트",
+      "price": "106,000",
+      "image": "img/cake3.png"
+    }
+    
+  ]
+}
