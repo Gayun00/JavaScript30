@@ -40,33 +40,55 @@ body {
   justify-content: space-around;
 }
 
-.header {
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
   height: 300px;
   background-color: beige;
 }
 
-.project-section {
-  height: 500px;
-  background-color: coral;
+.profile__img {
+  width: 80px;
 }
 
-.project-container {
-  width: 100px;
-  height: 100px;
-  background-color: cornflowerblue;
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.career-section {
-  width: 100px;
-  height: 200px;
+.about-me__content {
+  display: flex;
 }
 
-.testimonials-section {
-  width: 100px;
-  height: 200px;
+.content__div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  /* align-items: center; */
 }
 
-.contact-section {
-  width: 100px;
-  height: 200px;
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-work__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
