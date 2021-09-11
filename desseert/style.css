@@ -71,6 +71,10 @@ button {
   height: 80%;
 }
 
+.item-container-hide {
+  visibility: hidden;
+}
+
 .item-info {
   display: flex;
   justify-content: space-around;

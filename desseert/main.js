@@ -2,7 +2,6 @@ const $itemSection = document.querySelector(".item-section");
 const $filterSection = document.querySelector(".filter-section");
 const $itemImg = document.querySelector(".item-img");
 
-
 function loadItems() {
   return fetch("data/data.json")
   .then((response) => response.json())
@@ -11,7 +10,6 @@ function loadItems() {
 
 loadItems()
   .then((items) => {
-    console.log(items);
     displayItems(items);
     setEventListener(items);
   })
@@ -20,17 +18,24 @@ loadItems()
     console.log("error")
   })
 
-
-
 function setEventListener(items) {
-  $filterSection.addEventListener("click", (ev) => filterItems(ev, items));
+  $filterSection.addEventListener("click", (ev) => onClick(ev, items));
 }
 
-function filterItems(ev, items) {
+function onClick(ev, items) {
   const target = ev.target;
-  console.log(items)
+  const value = target.dataset.value;
+
   if(target.tagName !== "BUTTON") return;
-  console.log(target)
+  const $itemContainers = document.querySelectorAll(".item-container");
+  $itemContainers.forEach((itemContainer) => {
+    itemContainer.classList.toggle("item-container-hide",false);
+
+    const itemContainerClass = itemContainer.getAttribute("class");
+    if (!itemContainerClass.match(value)) {
+      itemContainer.classList.add("item-container-hide");
+    }
+  })
 }
 
   function displayItems(items) {
@@ -39,13 +44,11 @@ function filterItems(ev, items) {
 }
 
 function createHTMLString(item) {
-  return `<box class="item-container">
-  <img class="item-img" src="${item.image}" alt="${item.type}" >
+  return `<box class="item-container ${item.type}">
+  <img class="item-img" src="${item.image}" >
   <div class="item-info">
     <span class="item-title">${item.title}</span>
     <span class="item-price">${item.price}</span>
   </div>
 </box>`
 }
-
-
