@@ -10,11 +10,18 @@ body {
 }
 
 .nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-right:none; */
+  /* flex-direction: row */
   /* background-color: burlywood; */
 }
 
 .logo {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .logo-img {
@@ -25,6 +32,12 @@ body {
 .logo-text {
   font-weight: 900;
   font-size: 25px;
+}
+
+.menu {
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .header {
