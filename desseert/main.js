@@ -28,6 +28,7 @@ function onClick(ev, items) {
 
   if(target.tagName !== "BUTTON") return;
   const $itemContainers = document.querySelectorAll(".item-container");
+
   $itemContainers.forEach((itemContainer) => {
     itemContainer.classList.toggle("item-container-hide",false);
 

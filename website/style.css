@@ -1,0 +1,59 @@
+body {
+  font-family: 'BMDOHYEON';
+}
+
+@font-face {
+  font-family: 'BMDOHYEON';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav-bar {
+  /* background-color: burlywood; */
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo-img {
+  width: 100px;
+  /* font-family:'Courier New', Courier, monospace ; */
+}
+
+.logo-text {
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.header {
+  height: 300px;
+  background-color: beige;
+}
+
+.project-section {
+  height: 500px;
+  background-color: coral;
+}
+
+.project-container {
+  width: 100px;
+  height: 100px;
+  background-color: cornflowerblue;
+}
+
+.career-section {
+  width: 100px;
+  height: 200px;
+}
+
+.testimonials-section {
+  width: 100px;
+  height: 200px;
+}
+
+.contact-section {
+  width: 100px;
+  height: 200px;
+}
