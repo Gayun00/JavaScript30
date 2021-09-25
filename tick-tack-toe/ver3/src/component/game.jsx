@@ -6,11 +6,25 @@ import React, { Component } from 'react';
 import Board from './board';
 
 class Game extends Component {
+
+  state = {
+    value: 'X'
+  }
+
+  handleMark (event) {
+    console.log("clicked-board")
+  }
+
+
   render() {
     return (
+    <>
       <div>
-        <Board/>
+        <Board
+          onclick = {this.handleMark}
+        />
       </div>
+    </>
     );
   }
 }

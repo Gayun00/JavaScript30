@@ -13,9 +13,16 @@ class Board extends Component {
     }
   }
 
+  onclick(event) {
+    onclick = this.props.onclick
+  }
+
   renderSquare(i) {
     return (
-      <Square value={i}/>
+      <Square
+        value={i}
+        onclick = {()=>this.props.onclick(i)}
+      />
     )
   }
   render() {
