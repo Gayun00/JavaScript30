@@ -25,3 +25,18 @@ JavaScript 클래스에서 하위 클래스의 생성자를 정의할 때 항상
 
 - Pure Component를 만들 때 용이하다.
  : 데이터의 변경 여부를 쉽게 판단하여 Pure Component를 사용하였을 때 특정 데이터를 렌더링하도록 할지 여부를 결정할 수 있다.
+
+## 함수 컴포넌트
+- 보다 간단하게 작성할 수 있다.
+- state없이 render함수만을 가진다.
+- props를 입력받아 렌더링할 대상을 반환하는 함수를 작성하면 된다.
+**this.props가 아닌 props!**
+```js
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+```
