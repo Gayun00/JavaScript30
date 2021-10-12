@@ -4,8 +4,9 @@ import styles from './login.module.css';
 const Login = ({authService}) => {
   const onLogin = (event) => {
     const buttonText = event.target.textContent;
-    console.log(buttonText);
-    authService.login()
+    authService
+      .login()
+      .then((result) => console.log(result.user.uid))
   }
 
   return (
