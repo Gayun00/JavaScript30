@@ -6,11 +6,15 @@ import firebaseApp from './firebase';
 class Database {
   saveCard(userId, card){
   firebaseApp.database()
-    .ref(`${userId}/cards/${card.id}`)
-    .set(card)
-
-
+    .ref(`users/${userId}/cards/${card.id}`)
+    .set(card);
     }
+
+  removeCard(userId, card){
+    firebaseApp.database()
+      .ref(`users/${userId}/cards/${card.id}`)
+      .remove();
+      }
   
 }
 

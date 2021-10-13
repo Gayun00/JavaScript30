@@ -31,6 +31,8 @@ const Maker = ({database, authService}) => {
     const updated = {...cards};
     delete updated[card.id]
     setCards(updated)
+
+    database.removeCard(userId, card);
   }
 
   useEffect(()=> {
