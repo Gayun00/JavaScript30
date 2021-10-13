@@ -48,7 +48,7 @@ const Maker = ({database, authService}) => {
     updated[card.id] = card;
     setCards(updated);
 
-    database.saveCard(card)
+    database.saveCard(userId, card)
   }
 
   return (

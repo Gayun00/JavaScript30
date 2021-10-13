@@ -4,9 +4,9 @@ import firebaseApp from './firebase';
 
 
 class Database {
-  saveCard(card){
+  saveCard(userId, card){
   firebaseApp.database()
-    .ref(`userId:/cardId:${card.id}/${card}`)
+    .ref(`${userId}/cards/${card.id}`)
     .set(card)
 
 
