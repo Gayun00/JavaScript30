@@ -36,6 +36,16 @@ const Maker = ({database, authService}) => {
   }
 
   useEffect(()=> {
+    if(!userId){
+      return;
+    }
+    const stopSync = database.syncCard(userId, cards => {
+      setCards(cards);
+    })
+    return () => stopSync();
+  },[userId])
+
+  useEffect(()=> {
       authService.onAuthChange(user => {
         if(user) {
           setUserId(user.uid)

@@ -15,7 +15,16 @@ class Database {
       .ref(`users/${userId}/cards/${card.id}`)
       .remove();
       }
-  
+
+  syncCard(userId,updateCard){
+    const cardRef = firebaseApp.database()
+      .ref(`users/${userId}/cards`)
+    cardRef.on('value',(snapshot)=> {
+      const data = snapshot.val();
+      data && updateCard(data)
+    });
+      return () => cardRef.off();
+  }
 }
 
 export default Database;
