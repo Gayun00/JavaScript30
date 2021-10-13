@@ -11,9 +11,12 @@ const Login = ({authService}) => {
       .then((result) => goToMaker(result.user.uid))
   }
 
-  const goToMaker = () => {
+  const goToMaker = (userId) => {
     
-    history.push("/maker")
+    history.push({
+      pathname: "/maker",
+      state:{id: userId}
+    })
   }
 
   return (

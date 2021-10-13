@@ -5,7 +5,6 @@ import styles from './editForm.module.css';
 const EditForm = ({card, deleteCard, updateCard}) => {
 
   const onDelete=()=> {
-    console.log(card)
     deleteCard(card)
   }
 
@@ -14,6 +13,7 @@ const EditForm = ({card, deleteCard, updateCard}) => {
       ...card,
       [event.currentTarget.name] : event.currentTarget.value,
     })
+
   }
 
   return (

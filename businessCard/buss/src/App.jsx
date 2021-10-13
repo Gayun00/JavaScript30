@@ -8,7 +8,7 @@ import {
 import Login from './componenet/login/login';
 import Maker from './componenet/maker/maker';
 
-const App = ({authService}) => (
+const App = ({authService, database}) => (
   <>
     <BrowserRouter>
       <Switch>
@@ -16,7 +16,10 @@ const App = ({authService}) => (
           <Login authService={authService}/>
         </Route>
         <Route path = "/maker">
-          <Maker/>
+          <Maker
+            database={database}
+            authService={authService}
+          />
         </Route>
       </Switch>
     </BrowserRouter>
