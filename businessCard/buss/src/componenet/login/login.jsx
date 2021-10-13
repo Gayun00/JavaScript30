@@ -1,12 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import styles from './login.module.css';
 
 const Login = ({authService}) => {
-  const onLogin = (event) => {
-    const buttonText = event.target.textContent;
+  const history = useHistory();
+  const onLogin = () => {
+    // const buttonText = event.target.textContent;
     authService
       .login()
-      .then((result) => console.log(result.user.uid))
+      .then((result) => goToMaker(result.user.uid))
+  }
+
+  const goToMaker = () => {
+    
+    history.push("/maker")
   }
 
   return (

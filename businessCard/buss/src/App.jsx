@@ -13,7 +13,7 @@ const App = ({authService}) => (
     <BrowserRouter>
       <Switch>
         <Route exact path = "/">
-          <Login/>
+          <Login authService={authService}/>
         </Route>
         <Route path = "/maker">
           <Maker/>
