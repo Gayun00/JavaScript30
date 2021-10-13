@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Button = ({name, onDelete}) => {
+const Button = ({name, onClick}) => {
 
 
   return(
-      <button onClick={onDelete}>{name}</button>
+      <button onClick={onClick}>{name}</button>
   )};
 
 export default Button;

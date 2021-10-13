@@ -7,6 +7,15 @@ const AddForm = ({addCard}) => {
   const nameRef = useRef();
   const ageRef = useRef();
 
+  const onAdd =() => {
+    const card = {
+      id: Date.now(),
+      name: nameRef.current.value,
+      age: ageRef.current.value,
+    }
+    addCard(card);
+  }
+
   return (
   <li className={styles.addFormList}>
     <input
@@ -15,7 +24,7 @@ const AddForm = ({addCard}) => {
     <input
       ref = {ageRef}
       type="text" placeholder = "age" />
-    <Button name = "Add"/>
+    <Button name = "Add" onClick={onAdd}/>
   </li>
   )};
 

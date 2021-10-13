@@ -30,7 +30,10 @@ const EditForm = ({card, deleteCard, updateCard}) => {
       value={card.age}
       onChange={onUpdate}
     />
-    <Button name = "Delete" onDelete={onDelete}/>
+    <Button
+      name = "Delete"
+      onClick={onDelete}
+    />
   </li>
   )};
 

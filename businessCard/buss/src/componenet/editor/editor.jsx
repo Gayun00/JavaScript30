@@ -13,7 +13,9 @@ const Editor = ({cards, deleteCard, createOrUpdateCard}) => (
         deleteCard={deleteCard}
         updateCard={createOrUpdateCard}
       />)}
-    <AddForm addCard = {createOrUpdateCard}/>
+    <AddForm
+      addCard = {createOrUpdateCard}
+    />
     </section>
   </>
   );
