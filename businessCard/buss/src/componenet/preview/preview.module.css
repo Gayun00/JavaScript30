@@ -1,0 +1,13 @@
+.preview {
+  flex-basis: 50%;
+  background-color: aliceblue;
+}
+
+.title {
+  text-align: center;
+}
+
+.previewForm {
+  list-style: none;
+  text-align: center;
+}
