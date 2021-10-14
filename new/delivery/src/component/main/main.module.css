@@ -1,0 +1,42 @@
+/* body {
+  background-color: whitesmoke;
+} */
+
+.container {
+  /* margin-top: 5em; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo_main {
+  width: 10em;
+}
+
+.banner {
+  width: 90%;
+  height: 15em;
+  background-color: whitesmoke;
+}
+
+.buttons_main {
+  margin-top : 3em;
+}
+
+.FAQ_button,
+.order_button {
+  padding-top: 1.2em;
+  margin: 1em;
+  width: 10em;
+  height: 10em;
+  border-radius: 1em;
+  background-color: white;
+  box-shadow: var(--shadow-white);
+
+}
+
+.order_img,
+.FAQ_img {
+  width: 5em;
+
+}

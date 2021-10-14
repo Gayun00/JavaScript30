@@ -4,7 +4,13 @@ import styles from './login.module.css';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 // library.add(faCoffee)
 
-const Login = (props) => (
+const Login = (props) => {
+  
+  const onSignIn =() => {
+    console.log("signin clicked")
+  }
+  
+  return (
   <section className={styles.login_section}>
     <h1 className={styles.title}>
       <img className = {styles.logo_img}
@@ -22,7 +28,10 @@ const Login = (props) => (
         type="text" name="password"
         placeholder="    password"
       />
-      <button className={styles.sign_in_button}>Sign in</button>
+      <button
+        className={styles.sign_in_button}
+        onClick={onSignIn}
+      >Sign in</button>
     </div>
     <div className={styles.sign_in_with}>
       <p className={styles.sign_in_text}>Or sign in with</p>
@@ -33,7 +42,7 @@ const Login = (props) => (
       <img className={styles.other_sign_in_img} src="./facebook_logo.png" alt="" />
       </button>
       <button className={styles.other_sign_in_button}>
-      <img className={styles.other_sign_in_img} src="./kakaotalk_logo.png" alt="" />
+      <img className={styles.other_sign_in_img} src="./apple_logo.png" alt="" />
       </button>
     </div>
     <div className={styles.sign_up}>
@@ -41,6 +50,6 @@ const Login = (props) => (
       <button className={styles.sign_up_button}>Sign up</button>
     </div>
   </section>
-  );
+  )};
 
 export default Login;

@@ -6,6 +6,7 @@
   --main-color : rgb(49, 87, 201);
   --button-width: 20em;
   --shadow-dark: 8px 11px 15px -8px rgba(0,0,0,0.34);
+  --shadow-light: -3px -5px 12px 2px rgba(255,255,255,0.25);
   --shadow-white: -1px 1px 4px 1px rgba(0,0,0,0.11);
   --shadow-blue: -2px 3px 12px 2px rgba(38,68,158,0.25);
 
@@ -38,7 +39,6 @@ button {
   display: flex;
   margin-top: 0.5em;
   margin-bottom: 0.5em ;
-  /* flex-direction: row-reverse; */
   align-self: flex-start;
 }
 
@@ -60,7 +60,9 @@ button {
 }
 .id,
 .password {
-  box-shadow: var(--shadow-white)
+  padding: 0.2em;
+  box-shadow: var(--shadow-white);
+  outline: none;
 }
 
 .sign_in_text {
@@ -74,7 +76,8 @@ button {
   border-radius: 0.3em;
   color: aliceblue;
   background-color: var(--main-color);
-  box-shadow: var(--shadow-blue)
+  box-shadow: var(--shadow-blue);
+  cursor : pointer;
 
 }
 
@@ -83,22 +86,26 @@ button {
   border-radius: 0.3em;
   background-color: transparent;
   box-shadow: var(--shadow-white);
+  cursor : pointer;
 }
 
 .other_sign_in_img{
   margin: 0.2em;
   width: 2em;
+  cursor : pointer;
 }
 
 
 .sign_up{
   margin-top: 3em;
   display: flex;
+  
 }
 
 .sign_up_text {
   
   font-size: 0.8em;
+ 
 }
 
 .sign_up_button {
@@ -106,4 +113,5 @@ button {
   font-size: 0.8em;
   color: var(--main-color);
   background-color: transparent;
+  cursor : pointer;
 }
