@@ -1,15 +1,30 @@
 import React from 'react';
 import styles from './login.module.css';
+import {useHistory} from 'react-router';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 // library.add(faCoffee)
 
-const Login = (props) => {
-  
-  const onSignIn =() => {
-    console.log("signin clicked")
+const Login = ({authService}) => {
+  const history = useHistory();
+
+  const onGoogleSignIn =() => {
+    // event.preventDefault();
+    authService.googleLogin()
+    .then(result => goToMain(result.user.uid))
+  }
+
+  const onFacebookLogin=()=> {
+    authService.facebookLogin()
+    .then(result => goToMain(result.user.uid))
   }
   
+
+  const goToMain = () => {
+    history.push('/main');
+  }
+
+
   return (
   <section className={styles.login_section}>
     <h1 className={styles.title}>
@@ -30,15 +45,20 @@ const Login = (props) => {
       />
       <button
         className={styles.sign_in_button}
-        onClick={onSignIn}
+        
       >Sign in</button>
     </div>
     <div className={styles.sign_in_with}>
       <p className={styles.sign_in_text}>Or sign in with</p>
-      <button className={styles.other_sign_in_button}>
+      <button
+        className={styles.other_sign_in_button}
+        onClick={onGoogleSignIn}>
         <img className={styles.other_sign_in_img} src="./google_logo.png" alt="" />
       </button>
-      <button className={styles.other_sign_in_button}>
+      <button
+        className={styles.other_sign_in_button}
+        onClick={onFacebookLogin}
+      >
       <img className={styles.other_sign_in_img} src="./facebook_logo.png" alt="" />
       </button>
       <button className={styles.other_sign_in_button}>

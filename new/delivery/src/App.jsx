@@ -5,21 +5,25 @@ import React from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Main from './component/main/main';
 import Order from './component/order/order';
+import Signup from './component/signup/signup';
 
 
-function App() {
+function App({authService}) {
   return (
     <>
       <BrowserRouter>
         <Switch>
           <Route exact path ='/'>
-            <Login/>
+            <Login authService={authService}/>
           </Route>
           <Route path='/main'>
             <Main/>
           </Route>
           <Route path='/order'>
             <Order/>
+          </Route>
+          <Route path='/signup'>
+            <Signup authService={authService}/>
           </Route>
         </Switch>
       </BrowserRouter>
