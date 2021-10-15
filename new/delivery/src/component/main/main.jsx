@@ -1,14 +1,24 @@
 import React from 'react';
 import styles from './main.module.css';
+import {useHistory} from 'react-router';
 
-const Main = (props) => (
+const Main = (props) => {
+  const history = useHistory();
+  const goToOrder =() => {
+    history.push('/order')
+  }
+  
+  return (
   <div className={styles.container}>
     <header className={styles.header}>
       <img className={styles.logo_main} src="./main_logo.png" />
     </header>
     <div className={styles.banner}>Banner</div>
     <div className={styles.buttons_main}>
-      <button className={styles.order_button}>
+      <button
+        className={styles.order_button}
+        onClick={goToOrder}
+      >
         <img src="./order.png" className={styles.order_img} />
         <p>Order</p>
       </button>
@@ -18,6 +28,6 @@ const Main = (props) => (
       </button>
     </div>
   </div>
-);
+)};
 
 export default Main;

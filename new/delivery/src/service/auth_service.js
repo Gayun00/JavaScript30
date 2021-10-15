@@ -14,11 +14,17 @@ class AuthService {
   }
 
   signIn(email, password){
-    return firebaseApp.auth().signInWithEmailAndPassword(email, password)
+    return firebaseApp.auth().signInWithEmailAndPassword(email, password);
   }
 
   signUp(email, password){
-    return firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+    return firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+  }
+
+  checkAuthChange(onUserChange) {
+    return firebaseApp.auth().onAuthStateChanged((user) => {
+      onUserChange(user);
+    })
   }
 
 

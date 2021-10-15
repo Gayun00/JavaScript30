@@ -11,6 +11,7 @@ const Login = ({authService}) => {
   const idRef = useRef();
   const passwordRef = useRef();
   const [errorState, setErrorState] = useState(false);
+  const [userId, setUserId] = useState();
 
   const onLogin = () => {
     const idVal = idRef.current.value;
@@ -33,9 +34,16 @@ const Login = ({authService}) => {
   }
 
 
-  const goToMain = (user) => {
-    history.push('/main');
-    console.log(user)
+  const goToMain = (userId) => {
+    history.push({
+      pathname: "/main",
+      state: {id: userId}
+    });
+  }
+
+  const onAuthChanged = () => {
+    
+    authService.checkAuthChange()
   }
 
 
