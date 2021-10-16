@@ -1,21 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useHistory } from 'react-router';
-import styles from './order.module.css';
+import React from 'react';
+import styles from './order2.module.css';
 import OrderButton from './order_button';
 import OrderHeader from './order_header';
 
-const Order = (props) => {
-  const history = useHistory();
-  const onContinue =() => {
-    history.push("/order_step2")
-  }
-
-  return (
-    <>
+const Order2 = (props) => (
+  <>
 
   <div className={styles.container_order}>
     <OrderHeader/>
-    <img className={styles.step1_img} src="./order_step1.png" alt="" />
+    <img className={styles.step2_img} src="./order_step2.png" alt="" />
     <div className={styles.delievery_option}>
       <input
         className={styles.check_box}
@@ -60,10 +53,10 @@ const Order = (props) => {
         <div className={styles.price}>$5.99</div>
       </div>
     </div>
-    <OrderButton text="Continue" onClick={onContinue}/>
+    <OrderButton text="Continue" />
 
   </div>
   </>
-)};
+);
 
-export default Order;
+export default Order2;

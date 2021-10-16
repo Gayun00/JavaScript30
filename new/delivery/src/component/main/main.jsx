@@ -11,8 +11,17 @@ const Main = (props) => {
   return (
   <div className={styles.container}>
     <header className={styles.header}>
-      <img className={styles.logo_main} src="./main_logo.png" />
+     <div className={styles.header_content}>로그아웃</div>
+     <div className={styles.header_content}>마이페이지</div>
+     <div className={styles.header_content}>정보수정</div>
+     <div className={styles.header_content}>고객센터</div>
     </header>
+    <nav>
+      <img className={styles.logo_main} src="./main_logo.png" />
+      <div className={styles.navbar_content}>서비스 안내</div>
+      <div className={styles.navbar_content}>배송대행</div>
+      <div className={styles.navbar_content}>고객센터</div>
+    </nav>
     <div className={styles.banner}>Banner</div>
     <div className={styles.buttons_main}>
       <button
