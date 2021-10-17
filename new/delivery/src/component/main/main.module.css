@@ -60,18 +60,22 @@ body {
 .banner {
   width: 100%;
   height: 15em;
+  overflow: hidden;
   background-color: whitesmoke;
 }
 
+
 .banner_images {
+  width: 100%;
   display: flex;
+
+
 }
 
-.banner_img {
-  object-fit: fill;
-}
+
 
 .banner_buttons {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   transform: translateY(-150px);

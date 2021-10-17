@@ -6,7 +6,7 @@ import { useEffect } from 'react/cjs/react.development';
 const Main = (props) => {
   const [slideState, setSlideState] = useState(0);
   const MAX_SLIDES = 3;
-  const slideRef = useRef();
+  const slideRef = useRef(null);
   const history = useHistory();
 
 
@@ -59,8 +59,8 @@ const Main = (props) => {
     </nav>
 
 
-    <div className={styles.banner} ref={slideRef}>
-      <div className={styles.banner_images}>
+    <div className={styles.banner} >
+      <div className={styles.banner_images} ref={slideRef}>
         <img className={styles.banner_img}
           src="./banner1.jpg"/>
         <img className={styles.banner_img}
