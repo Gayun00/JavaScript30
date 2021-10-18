@@ -2,22 +2,23 @@ import React, { useRef, useState } from 'react';
 import styles from './login.module.css';
 import {useHistory} from 'react-router';
 import LoginError from './loginError';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// library.add(faCoffee)
+import OrderStep1 from '../order/order_step1';
 
 const Login = ({authService}) => {
   const history = useHistory();
+  const historyState = history?.location?.state;
+
   const idRef = useRef();
   const passwordRef = useRef();
+
   const [errorState, setErrorState] = useState(false);
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const onLogin = () => {
     const idVal = idRef.current.value;
     const passwordVal = passwordRef.current.value;
     authService.signIn(idVal, passwordVal)
-    .then(result =>goToMain(result.user.uid))
+    .then(result => goToMain(result.user.uid))
     .then(setErrorState(false))
     .catch(setErrorState(true))
   }
@@ -33,19 +34,12 @@ const Login = ({authService}) => {
     .then(result => goToMain(result.user.uid))
   }
 
-
   const goToMain = (userId) => {
     history.push({
       pathname: "/main",
       state: {id: userId}
     });
   }
-
-  const onAuthChanged = () => {
-    
-    authService.checkAuthChange()
-  }
-
 
   return (
   <section className={styles.login_section}>

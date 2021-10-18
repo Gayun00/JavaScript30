@@ -27,7 +27,7 @@ function App({authService, database}) {
           <Route path='/signup'>
             <Signup authService={authService}/>
           </Route>
-          <Route path ="/order_step2">
+          <Route path ="/order">
             <Order2/>
           </Route>
         </Switch>

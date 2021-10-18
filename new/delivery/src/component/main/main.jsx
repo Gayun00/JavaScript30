@@ -4,14 +4,20 @@ import {useHistory} from 'react-router';
 import { useEffect } from 'react/cjs/react.development';
 
 const Main = (props) => {
+  const history = useHistory();
+  const historyState = history?.location?.state;
+  const [userId, setUserId] = useState(historyState && historyState.id)
+
   const [slideState, setSlideState] = useState(0);
   const MAX_SLIDES = 3;
   const slideRef = useRef(null);
-  const history = useHistory();
 
 
   const goToOrder =() => {
-    history.push('/order')
+    history.push({
+      pathname : ('/order1'),
+      state: {id : userId}
+    })
   }
 
   const handleBannerLeft =()=> {

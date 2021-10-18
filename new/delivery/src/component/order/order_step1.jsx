@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './order_step1.module.css'
 import { useRef } from 'react';
 import OrderButton from './order_button';
+import { useHistory } from 'react-router';
+;
 
 const OrderStep1 = ({database}) => {
+  const history = useHistory();
+  const historyState = history?.location?.state;
+  const [userId, setUserId] = useState(historyState && historyState.id)
+
   const orderNoRef = useRef();
   const brandRef = useRef();
 
@@ -11,8 +17,8 @@ const OrderStep1 = ({database}) => {
     const orderNoVal = orderNoRef.current.value;
     const brandVal = brandRef.current.value;
 
-    console.log(orderNoVal, brandVal)
-    database.saveData(orderNoVal, brandVal)
+    console.log(userId, orderNoVal, brandVal)
+    database.saveData(userId, orderNoVal, brandVal)
   }
 
 
