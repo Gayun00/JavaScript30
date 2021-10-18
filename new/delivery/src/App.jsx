@@ -19,7 +19,7 @@ function App({authService, database}) {
             <Login authService={authService}/>
           </Route>
           <Route path='/main'>
-            <Main/>
+            <Main authService={authService}/>
           </Route>
           <Route path='/order1'>
             <OrderStep1 database={database}/>

@@ -3,6 +3,7 @@ import styles from './order_step1.module.css'
 import { useRef } from 'react';
 import OrderButton from './order_button';
 import { useHistory } from 'react-router';
+import MainHeader from '../main/main_header';
 ;
 
 const OrderStep1 = ({database}) => {
@@ -24,6 +25,7 @@ const OrderStep1 = ({database}) => {
 
   return (
   <div className={styles.container_order1}>
+    <MainHeader/>
     <form className={styles.form1}>
       <div className={styles.product_info}>
         <div className={styles.input_img}>

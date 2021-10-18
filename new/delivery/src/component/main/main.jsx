@@ -2,8 +2,9 @@ import React, { useRef, useState } from 'react';
 import styles from './main.module.css';
 import {useHistory} from 'react-router';
 import { useEffect } from 'react/cjs/react.development';
+import MainHeader from './main_header';
 
-const Main = (props) => {
+const Main = ({authService}) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const [userId, setUserId] = useState(historyState && historyState.id)
@@ -12,6 +13,19 @@ const Main = (props) => {
   const MAX_SLIDES = 3;
   const slideRef = useRef(null);
 
+  const onLogOut = () => {
+    authService.signOut().then(console.log("logged out"))
+  }
+
+  useEffect(()=> {
+    authService.onAuthChange(user => {
+      if(user) {
+        setUserId(user.uid)
+      } else {
+        history.push("/")
+      }
+    })
+  })
 
   const goToOrder =() => {
     history.push({
@@ -45,24 +59,8 @@ const Main = (props) => {
 
   return (
   <div className={styles.container}>
-    <header className={styles.header}>
-     <div className={styles.header_content}>로그아웃</div>
-     <div className={styles.header_content}>마이페이지</div>
-     <div className={styles.header_content}>정보수정</div>
-     <div className={styles.header_content}>고객센터</div>
-    </header>
 
-    <nav className={styles.nav}>
-      <img className={styles.logo_main} src="./main_logo_horizontal.png" />
-      <div className={styles.nav_container}>
-        <div className={styles.nav_content}>서비스 안내</div>
-        <div className={styles.nav_content}>배송대행</div>
-        <div className={styles.nav_content}>고객센터</div>
-        <button className={styles.menu_button}>B</button>
-      </div>
-    </nav>
-
-
+    <MainHeader onLogout={onLogOut}/>
     <div className={styles.banner} >
       <div className={styles.banner_images} ref={slideRef}>
         <img className={styles.banner_img}

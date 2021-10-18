@@ -21,12 +21,20 @@ class AuthService {
     return firebaseApp.auth().createUserWithEmailAndPassword(email, password);
   }
 
-  checkAuthChange(onUserChange) {
+  signOut(){
+    return firebaseApp.auth().signOut();
+  }
+
+  onAuthChange(onUserChange) {
     return firebaseApp.auth().onAuthStateChanged((user) => {
       onUserChange(user);
     })
   }
 
+  getCurrentUser(withCurrentUser){
+    const user = firebase.auth().currentUser;
+    withCurrentUser(user);
+  }
 
 }
 
