@@ -8,17 +8,21 @@ import Order from './component/order/order';
 import Signup from './component/signup/signup';
 import Order2 from './component/order/order2';
 import OrderStep1 from './component/order/order_step1';
+import MyPage from './component/my_page/my_page';
+import MainHeader from './component/main/main_header';
 
 
 function App({authService, database}) {
   return (
     <>
+    
       <BrowserRouter>
+      <MainHeader authService={authService}/>
         <Switch>
-          <Route exact path ='/'>
+          <Route path ='/login'>
             <Login authService={authService}/>
           </Route>
-          <Route path='/main'>
+          <Route exact path='/'>
             <Main authService={authService}/>
           </Route>
           <Route path='/order1'>
@@ -30,6 +34,10 @@ function App({authService, database}) {
           <Route path ="/order">
             <Order2/>
           </Route>
+          <Route path = "/my_page">
+            <MyPage database={database}/>
+          </Route>
+
         </Switch>
       </BrowserRouter>
     </>

@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import styles from './main_header.module.css';
 
-const MainHeader = ({onLogout}) => {
+const MainHeader = ({authService}) => {
+  const history = useHistory();
+  const historyState = history?.location?.state;
+  const [userId, setUserId] = useState(historyState && historyState.id)
+
+
+
+  const onLogout = () => {
+    authService.signOut()
+  }
+
+  const goToLogin =() => {
+    history.push('/login')
+  }
+
+  useEffect(()=> {
+    authService?.onAuthChange(user => {
+      if(user) {
+        setUserId(user.uid)
+      } else {
+        history.push("/")
+      }
+    })
+  })
+
+  const goToMyPage = () => {
+    history.push({
+      pathname : ('/my_page'),
+      state: {id : userId}
+    })
+    console.log("mypage")
+  }
 
 
   return (
   <>
-    <header className={styles.header}>
+<header className={styles.header}>
       <div className={styles.header_content}
-        onClick={onLogout}>로그아웃</div>
-      <div className={styles.header_content}>마이페이지</div>
+        onClick={userId? onLogout : goToLogin}>{userId? "로그아웃" : "로그인"}</div>
+      <div className={styles.header_content}
+        onClick={goToMyPage}
+        >마이페이지</div>
       <div className={styles.header_content}>정보수정</div>
       <div className={styles.header_content}>고객센터</div>
     </header>

@@ -13,19 +13,25 @@ const Main = ({authService}) => {
   const MAX_SLIDES = 3;
   const slideRef = useRef(null);
 
-  const onLogOut = () => {
-    authService.signOut().then(console.log("logged out"))
-  }
-
   useEffect(()=> {
     authService.onAuthChange(user => {
       if(user) {
         setUserId(user.uid)
       } else {
-        history.push("/")
+        history.push("/login")
       }
     })
   })
+
+  const goToMyPage = () => {
+    history.push({
+      pathname : ('/my_page'),
+      state: {id : userId}
+    })
+    console.log("mypage")
+  }
+
+
 
   const goToOrder =() => {
     history.push({
@@ -33,6 +39,8 @@ const Main = ({authService}) => {
       state: {id : userId}
     })
   }
+
+
 
   const handleBannerLeft =()=> {
     if(slideState === 0) {
@@ -59,8 +67,6 @@ const Main = ({authService}) => {
 
   return (
   <div className={styles.container}>
-
-    <MainHeader onLogout={onLogOut}/>
     <div className={styles.banner} >
       <div className={styles.banner_images} ref={slideRef}>
         <img className={styles.banner_img}

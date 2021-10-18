@@ -25,7 +25,6 @@ const OrderStep1 = ({database}) => {
 
   return (
   <div className={styles.container_order1}>
-    <MainHeader/>
     <form className={styles.form1}>
       <div className={styles.product_info}>
         <div className={styles.input_img}>

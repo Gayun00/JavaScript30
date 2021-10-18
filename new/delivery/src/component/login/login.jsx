@@ -23,9 +23,6 @@ const Login = ({authService}) => {
     .catch(setErrorState(true))
   }
 
-  const onLogOut = () => {
-    authService.signOut();
-  }
 
   const onGoogleSignIn = () => {
     authService.googleLogin()
@@ -40,7 +37,7 @@ const Login = ({authService}) => {
 
   const goToMain = (userId) => {
     history.push({
-      pathname: "/main",
+      pathname: "/",
       state: {id: userId}
     });
   }

@@ -8,6 +8,15 @@ class Database {
       brand : brand,
     });
   }
+
+  viewData(userId, showData) {
+    const dataRef = firebaseApp.database()
+      .ref(`${userId}/`);
+    dataRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      data && showData(data);
+    });
+  }
 }
 
 export default Database;
