@@ -7,9 +7,10 @@ import Main from './component/main/main';
 import Order from './component/order/order';
 import Signup from './component/signup/signup';
 import Order2 from './component/order/order2';
+import OrderStep1 from './component/order/order_step1';
 
 
-function App({authService}) {
+function App({authService, database}) {
   return (
     <>
       <BrowserRouter>
@@ -20,8 +21,8 @@ function App({authService}) {
           <Route path='/main'>
             <Main/>
           </Route>
-          <Route path='/order'>
-            <Order/>
+          <Route path='/order1'>
+            <OrderStep1 database={database}/>
           </Route>
           <Route path='/signup'>
             <Signup authService={authService}/>

@@ -15,7 +15,6 @@ const Main = (props) => {
   }
 
   const handleBannerLeft =()=> {
-    console.log(slideState)
     if(slideState === 0) {
       setSlideState(MAX_SLIDES);
     }else {
@@ -24,7 +23,6 @@ const Main = (props) => {
   }
 
   const handleBannerRight =() => {
-    console.log(slideState)
     if(slideState >= MAX_SLIDES) {
       setSlideState(0)
     } else {

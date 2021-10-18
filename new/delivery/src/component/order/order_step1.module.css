@@ -1,0 +1,16 @@
+.container_order1 {
+  width: 1170px;
+  background-color: antiquewhite;
+}
+
+.product_info {
+  display: flex;
+}
+
+.product_info_detail {
+
+}
+
+.product_detail {
+  display: flex;
+}
