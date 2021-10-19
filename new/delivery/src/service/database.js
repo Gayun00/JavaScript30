@@ -3,7 +3,8 @@ import firebaseApp from "./firebase";
 
 class Database {
   saveData(userId, orderNo, brand) {
-    firebaseApp.database().ref(`${userId}/`).set({
+    // date = new Date
+    firebaseApp.database().ref(`${userId}/${Date.now()}`).set({
       orderNo : orderNo,
       brand : brand,
     });
@@ -17,6 +18,8 @@ class Database {
       data && showData(data);
     });
   }
+
+
 }
 
 export default Database;
