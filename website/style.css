@@ -29,6 +29,7 @@ p {
 .arrow-button {
   opacity: 0;
   transition: all 0.3s ease-in;
+  cursor: pointer;
 }
 
 .arrow-button-show {

@@ -19,16 +19,9 @@ const $profileButton = document.querySelector(".profile__button");
 const $skills = document.querySelector(".skills");
 const $contact = document.querySelector(".contact");
 
-
-window.addEventListener("scroll", showArrowButton)
-
-function showArrowButton () {
-  if(window.scrollY > $profileHeight) {
-    $arrowButton.classList.add("arrow-button-show")
-  } else {
-    $arrowButton.classList.remove("arrow-button-show");
-  }
-}
+$menuContact.addEventListener("click",scrollToContact);
+$profileButton.addEventListener("click", scrollToContact);
+$arrowButton.addEventListener("click", scrollToTop);
 
 document.addEventListener("scroll", () => {
   if(window.scrollY > $navBarHeight) {
@@ -43,15 +36,19 @@ document.addEventListener("scroll", transparentProfile);
 function transparentProfile () {
   if(window.scrollY > $profileHeight-300) {
     $profile.classList.add("profile-hide");
+    $arrowButton.classList.add("arrow-button-show")
   } else {
     $profile.classList.remove("profile-hide");
+    $arrowButton.classList.remove("arrow-button-show");
   }
 }
 
-$menuContact.addEventListener("click",scrollToContact);
+
 function scrollToContact(){
-  $contact.scrollIntoView({behavior:"smooth"})
+  $contact.scrollIntoView({behavior:"smooth"});
 }
 
-$profileButton.addEventListener("click", scrollToContact)
 
+function scrollToTop () {
+  $profile.scrollIntoView({behavior: "smooth"});
+}
