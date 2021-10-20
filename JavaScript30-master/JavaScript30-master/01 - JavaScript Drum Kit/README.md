@@ -176,6 +176,7 @@ css를 적용해보자.
 ![](https://images.velog.io/images/gygy/post/2496ccee-fcce-410f-a1bf-d8950261d144/image.png)
 
 다만, 한번 누른 키는 계속해서 테두리가 바뀐채로 있고 다시 원래대로 돌아가지 않는다.
+
 <br>
 <br>
 
