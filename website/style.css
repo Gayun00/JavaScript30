@@ -26,6 +26,15 @@ p {
   width: var(--text-width);
 }
 
+.arrow-button {
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+
+.arrow-button-show {
+  opacity: 100%;
+}
+
 .nav-bar {
   position: fixed;
   display: flex;
@@ -89,6 +98,11 @@ p {
   height: var(--section-height);
   padding: var(--section-margin) 0 var(--section-margin) 0;
   background-color: rgb(255, 243, 227);
+  transition: all 0.5s ease-in;
+}
+
+.profile-hide {
+  opacity: 0%;
 }
 
 .profile__img {
@@ -110,6 +124,17 @@ p {
 
 .profile__button:hover{
   transform:scale(1.1)
+}
+
+.arrow-button {
+  width: 4em;
+  height: 4em;
+  position: fixed;
+  top: 90%;
+  left: 92%;
+  border-radius: 5em;
+  border: none;
+  background-color: skyblue;
 }
 
 .about-me {

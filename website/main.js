@@ -1,6 +1,12 @@
 const $navBar = document.querySelector(".nav-bar");
-const $navBarHeight = $navBar.getBoundingClientRect().height
+const $navBarHeight = $navBar.getBoundingClientRect().height;
 
+const $arrowButton = document.querySelector(".arrow-button");
+
+const $profile = document.querySelector(".profile");
+const $profileHeight = $profile.getBoundingClientRect().height;
+
+console.log($profileHeight)
 const $menuHome = document.querySelector(".menu--home");
 const $menuAbout = document.querySelector(".menu--about");
 const $menuSkills = document.querySelector(".menu--skills");
@@ -13,6 +19,17 @@ const $profileButton = document.querySelector(".profile__button");
 const $skills = document.querySelector(".skills");
 const $contact = document.querySelector(".contact");
 
+
+window.addEventListener("scroll", showArrowButton)
+
+function showArrowButton () {
+  if(window.scrollY > $profileHeight) {
+    $arrowButton.classList.add("arrow-button-show")
+  } else {
+    $arrowButton.classList.remove("arrow-button-show");
+  }
+}
+
 document.addEventListener("scroll", () => {
   if(window.scrollY > $navBarHeight) {
     $navBar.classList.add("nav-bar-background")
@@ -21,9 +38,20 @@ document.addEventListener("scroll", () => {
   }
 })
 
+document.addEventListener("scroll", transparentProfile);
+
+function transparentProfile () {
+  if(window.scrollY > $profileHeight-300) {
+    $profile.classList.add("profile-hide");
+  } else {
+    $profile.classList.remove("profile-hide");
+  }
+}
+
 $menuContact.addEventListener("click",scrollToContact);
 function scrollToContact(){
   $contact.scrollIntoView({behavior:"smooth"})
 }
 
 $profileButton.addEventListener("click", scrollToContact)
+
