@@ -12,10 +12,7 @@ const $menuAbout = document.querySelector(".menu--about");
 const $menuSkills = document.querySelector(".menu--skills");
 const $menuMyWork = document.querySelector(".menu--my-work");
 const $menuContact = document.querySelector(".menu--contact");
-
 const $profileButton = document.querySelector(".profile__button");
-
-
 const $skills = document.querySelector(".skills");
 const $contact = document.querySelector(".contact");
 
@@ -23,15 +20,16 @@ $menuContact.addEventListener("click",scrollToContact);
 $profileButton.addEventListener("click", scrollToContact);
 $arrowButton.addEventListener("click", scrollToTop);
 
-document.addEventListener("scroll", () => {
-  if(window.scrollY > $navBarHeight) {
-    $navBar.classList.add("nav-bar-background")
-  } else {
-    $navBar.classList.remove("nav-bar-background")
-  }
-})
-
+document.addEventListener("scroll", showNavBar)
 document.addEventListener("scroll", transparentProfile);
+
+function showNavBar(){
+    if(window.scrollY > $navBarHeight) {
+      $navBar.classList.add("nav-bar-background")
+    } else {
+      $navBar.classList.remove("nav-bar-background")
+    }
+}
 
 function transparentProfile () {
   if(window.scrollY > $profileHeight-300) {
@@ -43,12 +41,30 @@ function transparentProfile () {
   }
 }
 
-
 function scrollToContact(){
   $contact.scrollIntoView({behavior:"smooth"});
 }
 
-
 function scrollToTop () {
   $profile.scrollIntoView({behavior: "smooth"});
+}
+
+
+const $menuButtons = document.querySelectorAll(".menu__button");
+const $contentContainers = document.querySelectorAll(".content__container");
+
+$menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
+
+function filterProject(ev) {
+  const target = ev.target.name;
+  console.log(target)
+
+  $contentContainers.forEach(($contentContainer) => {
+    if(target === $contentContainer.dataset.key) {
+      $contentContainer.classList.remove('content__container-hide');
+    } else {
+      $contentContainer.classList.add('content__container-hide');
+    }
+  })
+
 }

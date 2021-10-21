@@ -202,11 +202,21 @@ p {
   height: 30px;
   border: 0;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu__button:hover {
+  background-color: skyblue;
+  transition: all 0.3s ease-in;
 }
 
 .content__container {
   text-align: center;
   width: 300px;
+}
+
+.content__container-hide {
+  visibility: hidden;
 }
 
 .container__img {
