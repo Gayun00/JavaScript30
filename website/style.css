@@ -216,7 +216,7 @@ p {
 }
 
 .content__container-hide {
-  visibility: hidden;
+  display: none;
 }
 
 .container__img {

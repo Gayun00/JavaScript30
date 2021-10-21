@@ -60,7 +60,7 @@ function filterProject(ev) {
   console.log(target)
 
   $contentContainers.forEach(($contentContainer) => {
-    if(target === $contentContainer.dataset.key) {
+    if(target === '*' || target === $contentContainer.dataset.key) {
       $contentContainer.classList.remove('content__container-hide');
     } else {
       $contentContainer.classList.add('content__container-hide');
