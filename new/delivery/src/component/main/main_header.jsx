@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 import styles from './main_header.module.css';
 
-const MainHeader = ({authService}) => {
+const MainHeader = ({authService, database}) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const [userId, setUserId] = useState(historyState && historyState.id)
+  // const [dataState, setDataState] = useState();
 
-
+  // const dataRef = useRef();
 
   const onLogout = () => {
     authService.signOut()
@@ -32,7 +33,7 @@ const MainHeader = ({authService}) => {
       pathname : ('/my_page'),
       state: {id : userId}
     })
-    console.log("mypage")
+
   }
 
 

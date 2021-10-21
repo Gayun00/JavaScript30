@@ -19,10 +19,11 @@ const MyBoard = ({database}) => {
     const brandVal = data.brand;
     // console.log(orderNoVal, brandVal)
     // setDataState(orderNoVal)
-    // setDataState({
-    //   orderNo: {orderNoVal},
-    //   brand: {brandVal}
-    // })
+    setDataState({
+      ...dataState,
+      [orderNo]: {orderNoVal},
+      [brand]: {brandVal}
+    })
     // console.log()
   })
 

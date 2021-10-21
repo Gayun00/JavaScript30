@@ -16,7 +16,10 @@ function App({authService, database}) {
   return (
     <>
       <BrowserRouter>
-      <MainHeader authService={authService}/>
+      <MainHeader
+        authService={authService}
+        database={database}
+      />
         <Switch>
           <Route path ='/login'>
             <Login authService={authService}/>
