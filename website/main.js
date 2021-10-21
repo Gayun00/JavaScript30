@@ -71,6 +71,8 @@ function filterProject(ev) {
     $myWorkContent.classList.remove('anim-out');
   }, 500)
 
-
-
+  const $activeMenuButton = document.querySelector('.menu__button-selected');
+  $activeMenuButton.classList.remove('menu__button-selected');
+  ev.target.classList.add('menu__button-selected');
 }
+

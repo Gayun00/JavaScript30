@@ -210,6 +210,10 @@ p {
   transition: all 0.3s ease-in;
 }
 
+.menu__button-selected {
+  background-color: skyblue;
+}
+
 .my-work__content {
   transition: all 0.2s ease-in;
 }
