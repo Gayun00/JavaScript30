@@ -61,18 +61,16 @@ function filterProject(ev) {
 
   $myWorkContent.classList.add('anim-out');
   setTimeout(()=> {
+    $contentContainers.forEach(($contentContainer) => {
+      if(target === '*' || target === $contentContainer.dataset.key) {
+        $contentContainer.classList.remove('content__container-hide');
+      } else {
+        $contentContainer.classList.add('content__container-hide');
+      }
+    })
     $myWorkContent.classList.remove('anim-out');
-  }, 1000)
-
-  $contentContainers.forEach(($contentContainer) => {
-    if(target === '*' || target === $contentContainer.dataset.key) {
-      $contentContainer.classList.remove('content__container-hide');
-    } else {
-      $contentContainer.classList.add('content__container-hide');
-    }
+  }, 500)
 
 
-
-  })
 
 }
