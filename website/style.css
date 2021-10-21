@@ -210,6 +210,15 @@ p {
   transition: all 0.3s ease-in;
 }
 
+.my-work__content {
+  transition: all 0.2s ease-in;
+}
+
+.anim-out {
+  opacity: 0;
+  transform :  scale(1.1) translateY(10%);
+}
+
 .content__container {
   text-align: center;
   width: 300px;

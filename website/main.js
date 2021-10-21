@@ -52,12 +52,17 @@ function scrollToTop () {
 
 const $menuButtons = document.querySelectorAll(".menu__button");
 const $contentContainers = document.querySelectorAll(".content__container");
+const $myWorkContent = document.querySelector(".my-work__content");
 
 $menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
 
 function filterProject(ev) {
   const target = ev.target.name;
-  console.log(target)
+
+  $myWorkContent.classList.add('anim-out');
+  setTimeout(()=> {
+    $myWorkContent.classList.remove('anim-out');
+  }, 1000)
 
   $contentContainers.forEach(($contentContainer) => {
     if(target === '*' || target === $contentContainer.dataset.key) {
@@ -65,6 +70,9 @@ function filterProject(ev) {
     } else {
       $contentContainer.classList.add('content__container-hide');
     }
+
+
+
   })
 
 }
