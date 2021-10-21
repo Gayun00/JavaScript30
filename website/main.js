@@ -76,3 +76,10 @@ function filterProject(ev) {
   ev.target.classList.add('menu__button-selected');
 }
 
+const $menu = document.querySelector(".menu");
+const $navButton = document.querySelector(".nav_button");
+$navButton.addEventListener("click", spreadMenu);
+
+function spreadMenu() {
+  $menu.classList.toggle("show")
+}
