@@ -29,11 +29,13 @@ p {
 .arrow-button {
   opacity: 0;
   transition: all 0.3s ease-in;
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .arrow-button-show {
   opacity: 100%;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .nav-bar {
