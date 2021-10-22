@@ -109,13 +109,25 @@ console.log(sections, navItems);
 let options = {
   root: null,
   rootMargin: '0px',
-  threshold: 0.3
+  threshold: 0.3,
 }
 let callback = (entries, observer) => {
   entries.forEach(entry => {
     if(!entry.isIntersecting){
       const index = sectionIds.indexOf(`#${entry.target.id}`);
-      console.log(index, entry.target.id);
+
+      let selectedIndex;
+
+      if (entry.boundingClientRect.y < 0) {
+        selectedIndex = index + 1;
+      } else {
+        selectedIndex = index - 1;
+      }
+
+
+      const navItem = navItems[selectedIndex];
+      console.log(navItem)
+      // navItem.classList.add('menu-selected');
     }
   });
 };
