@@ -103,12 +103,9 @@ const sections = sectionIds.map(id => document.querySelector(id));
 const navItems = sectionIds.map(id =>
   document.querySelector(`[data-link="${id}"]`)
 );
+// function selectedNavItem (selected) {
 
-function selectedNavItem (selected) {
-  navItem.classList.remove('menu-selected');
-  const navItem = selected
-  navItem.classList.add('menu-selected');
-}
+// }
 
 let options = {
   root: null,
@@ -120,15 +117,17 @@ let callback = (entries, observer) => {
     if(!entry.isIntersecting && entry.intersectionRatio > 0){
       const index = sectionIds.indexOf(`#${entry.target.id}`);
 
-      let selectedIndex;
+      let selectedIndex = 0;
 
       if (entry.boundingClientRect.y < 0) {
         selectedIndex = index + 1;
       } else {
         selectedIndex = index - 1;
       }
-
-
+      const navItem = navItems[selectedIndex];
+      const $selectedNavButton = document.querySelector('.menu-selected');
+      $selectedNavButton.classList.remove("menu-selected");
+      navItem.classList.add('menu-selected');
     }
   });
 };

@@ -226,7 +226,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: var(--section-height);
+  height: 600px;
   padding: var(--section-margin) 0 var(--section-margin) 0;
   background-color: rgb(255, 241, 236);
 }
@@ -252,6 +252,7 @@ p {
 }
 
 .skills {
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -318,6 +319,7 @@ p {
 }
 
 .contact {
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
