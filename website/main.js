@@ -104,7 +104,11 @@ const navItems = sectionIds.map(id =>
   document.querySelector(`[data-link="${id}"]`)
 );
 
-console.log(sections, navItems);
+function selectedNavItem (selected) {
+  navItem.classList.remove('menu-selected');
+  const navItem = selected
+  navItem.classList.add('menu-selected');
+}
 
 let options = {
   root: null,
@@ -113,7 +117,7 @@ let options = {
 }
 let callback = (entries, observer) => {
   entries.forEach(entry => {
-    if(!entry.isIntersecting){
+    if(!entry.isIntersecting && entry.intersectionRatio > 0){
       const index = sectionIds.indexOf(`#${entry.target.id}`);
 
       let selectedIndex;
@@ -125,9 +129,6 @@ let callback = (entries, observer) => {
       }
 
 
-      const navItem = navItems[selectedIndex];
-      console.log(navItem)
-      // navItem.classList.add('menu-selected');
     }
   });
 };
