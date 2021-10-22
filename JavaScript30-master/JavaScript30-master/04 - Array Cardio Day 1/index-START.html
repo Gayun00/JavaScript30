@@ -41,7 +41,7 @@
     const answer1 = inventors.filter((inventor) => {
       return (1500 <= inventor.year && inventor.year < 1600) ? true : false;
     })
-    console.log(answer1)
+    console.table(answer1)
 
     // 0: {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642}
     // 1: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
@@ -64,19 +64,16 @@
       }
     )
 
-    console.log(answer3)
+    console.table(answer3)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
-    const yearArr = inventors.map((inventor) => {
-      return inventor.passed - inventor.year
-    })
+    const answer4 = inventors.reduce((sum, curr) => {
+        return sum+ (curr.passed - curr.year)
+      },0)
 
-    const answer4 = yearArr.reduce((sum, curr) => {
-        return sum + curr;
-      })
-      console.log(answer4)
+    console.log(answer4)
 
     // 5. Sort the inventors by years lived
 
@@ -95,6 +92,19 @@
     console.log(answer6)
 
 
+    // 정답
+    const category = document.querySeletor('.mw-category');
+    // const links = category.querySelectorAll('a');
+
+    //const de = links.map(link => link.textContent);
+    //이렇게 하면 작동하지 않는다. querySelector로 선택해 NodeList가 반환되므로 배열로 바꾸어줘야 한다.
+
+    const links = Array.from(category.querySelectorAll('a'));//전개연산자도 사용가능
+    const de = links
+      .map(link => link.textContent)
+      .filter(streetName => streetName.includes('de'));
+
+
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
@@ -102,6 +112,12 @@
       return a.last.localeCompare(b.last)
     })
     console.log(answer7)
+
+    const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return aLast > bLast ? 1 : -1;
+    })
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
@@ -111,6 +127,16 @@
       return sum.includes(curr) ? sum : [...sum,curr];
     }, [])
     console.log(answer8)
+
+    // 정답
+    const transportation = data.reduce(function(obj, item) {
+      if(!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {});
+
   </script>
 </body>
 </html>
