@@ -18,8 +18,10 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <div class="background">
+    <img id="img" src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
+  </div>
   <style>
 
     /*
@@ -28,6 +30,9 @@
 
     body {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       background: #193549;
       color: white;
       font-family: 'helvetica neue', sans-serif;
@@ -42,9 +47,17 @@
     input {
       width: 100px;
     }
+
+    .background {
+      display: flex;
+      width: 830px;
+      height: 530px;
+      background-color: yellow;
+      overflow: hidden;
+    }
   </style>
 
-  <script>
+  <script src='main.js'>
   </script>
 
 </body>
