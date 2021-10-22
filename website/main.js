@@ -6,7 +6,7 @@ const $arrowButton = document.querySelector(".arrow-button");
 const $profile = document.querySelector(".profile");
 const $profileHeight = $profile.getBoundingClientRect().height;
 
-console.log($profileHeight)
+
 const $menuHome = document.querySelector(".menu--home");
 const $menuAbout = document.querySelector(".menu--about");
 const $menuSkills = document.querySelector(".menu--skills");
@@ -15,12 +15,20 @@ const $menuContact = document.querySelector(".menu--contact");
 const $profileButton = document.querySelector(".profile__button");
 const $skills = document.querySelector(".skills");
 const $contact = document.querySelector(".contact");
+const $menu = document.querySelector(".menu");
+const $navButton = document.querySelector(".nav_button");
+const $menuButtons = document.querySelectorAll(".menu__button");
+const $contentContainers = document.querySelectorAll(".content__container");
+const $myWorkContent = document.querySelector(".my-work__content");
+const $section = document.querySelectorAll(".setion")
 
 $menuContact.addEventListener("click",scrollToContact);
 $profileButton.addEventListener("click", scrollToContact);
 $arrowButton.addEventListener("click", scrollToTop);
-
-document.addEventListener("scroll", showNavBar)
+$menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
+$navButton.addEventListener("click", spreadMenu);
+$menu.addEventListener("click", handleSelectedNav);
+document.addEventListener("scroll", showNavBar);
 document.addEventListener("scroll", transparentProfile);
 
 function showNavBar(){
@@ -49,13 +57,6 @@ function scrollToTop () {
   $profile.scrollIntoView({behavior: "smooth"});
 }
 
-
-const $menuButtons = document.querySelectorAll(".menu__button");
-const $contentContainers = document.querySelectorAll(".content__container");
-const $myWorkContent = document.querySelector(".my-work__content");
-
-$menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
-
 function filterProject(ev) {
   const target = ev.target.name;
 
@@ -69,17 +70,35 @@ function filterProject(ev) {
       }
     })
     $myWorkContent.classList.remove('anim-out');
-  }, 500)
+  }, 100)
 
   const $activeMenuButton = document.querySelector('.menu__button-selected');
+
   $activeMenuButton.classList.remove('menu__button-selected');
   ev.target.classList.add('menu__button-selected');
 }
 
-const $menu = document.querySelector(".menu");
-const $navButton = document.querySelector(".nav_button");
-$navButton.addEventListener("click", spreadMenu);
-
 function spreadMenu() {
   $menu.classList.toggle("show")
 }
+
+function handleSelectedNav (ev) {
+  const target = ev.target;
+  if(target.nodeName !== 'SPAN') return;
+  const $selectedNavButton = document.querySelector('.menu-selected');
+  $selectedNavButton.classList.remove("menu-selected");
+  target.classList.add("menu-selected");
+}
+
+let options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 1.0
+}
+let callback = (entries, observer) => {
+  console.log(entries)
+}
+let observer = new IntersectionObserver(callback, options);
+
+observer.observe($skills);
+
