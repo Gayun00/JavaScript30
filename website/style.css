@@ -149,10 +149,7 @@ p {
 
   .nav_button {
   display: block;
-}
-
-
-
+  }
 }
 
 .menu-selected {
@@ -181,8 +178,8 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 500px;
-  height: var(--section-height);
+  height: 600px;
+  /* height: var(--section-height); */
   padding: var(--section-margin) 0 var(--section-margin) 0;
   /* background-color: rgb(255, 243, 227); */
   transition: all 0.5s ease-in;

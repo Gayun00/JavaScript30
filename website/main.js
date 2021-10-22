@@ -20,7 +20,6 @@ const $navButton = document.querySelector(".nav_button");
 const $menuButtons = document.querySelectorAll(".menu__button");
 const $contentContainers = document.querySelectorAll(".content__container");
 const $myWorkContent = document.querySelector(".my-work__content");
-const $section = document.querySelectorAll(".setion")
 
 $menuContact.addEventListener("click",scrollToContact);
 $profileButton.addEventListener("click", scrollToContact);
@@ -90,15 +89,35 @@ function handleSelectedNav (ev) {
   target.classList.add("menu-selected");
 }
 
+// intersectionObserver...
+
+const sectionIds = [
+  '#profile',
+  '#about-me',
+  '#skills',
+  '#my-work',
+  '#contact',
+]
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+console.log(sections, navItems);
+
 let options = {
   root: null,
   rootMargin: '0px',
-  threshold: 1.0
+  threshold: 0.3
 }
 let callback = (entries, observer) => {
-  console.log(entries)
-}
+  entries.forEach(entry => {
+    if(!entry.isIntersecting){
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      console.log(index, entry.target.id);
+    }
+  });
+};
 let observer = new IntersectionObserver(callback, options);
-
-observer.observe($skills);
-
+sections.forEach(section => observer.observe(section));
