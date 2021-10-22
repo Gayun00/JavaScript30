@@ -34,32 +34,83 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+
+    const answer1 = inventors.filter((inventor) => {
+      return (1500 <= inventor.year && inventor.year < 1600) ? true : false;
+    })
+    console.log(answer1)
+
+    // 0: {first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642}
+    // 1: {first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630}
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
 
+    const answer2 = inventors.map((inventor) => {
+      return inventor.first + ' ' + inventor.last
+    })
+
+    console.log(answer2)
+
+
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+    const answer3 = inventors.sort((a, b) => {
+      return a.year - b.year;
+      }
+    )
+
+    console.log(answer3)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
+    const yearArr = inventors.map((inventor) => {
+      return inventor.passed - inventor.year
+    })
+
+    const answer4 = yearArr.reduce((sum, curr) => {
+        return sum + curr;
+      })
+      console.log(answer4)
+
     // 5. Sort the inventors by years lived
+
+    const answer5 = inventors.sort((a, b) => {
+      return (a.passed - a.year) - (b.passed - b.year);
+    })
+
+    console.log(answer5);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+    const answer6 = inventors.map((inventor) => {
+      return `Boulevard de ${inventor.first} ${inventor.last}`
+    })
+    console.log(answer6)
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    const answer7 = inventors.sort((a, b) => {
+      return a.last.localeCompare(b.last)
+    })
+    console.log(answer7)
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const answer8 = data.reduce((sum, curr) => {
+      return sum.includes(curr) ? sum : [...sum,curr];
+    }, [])
+    console.log(answer8)
   </script>
 </body>
 </html>
