@@ -25,17 +25,11 @@ const $menuButtons = document.querySelectorAll(".menu__button");
 const $contentContainers = document.querySelectorAll(".content__container");
 const $myWorkContent = document.querySelector(".my-work__content");
 
-$menuHome.addEventListener("click", scrollToHome);
-$menuAbout.addEventListener("click", scrollToAbout);
-$menuSkills.addEventListener("click", scrollToSkills);
-$menuMyWork.addEventListener("click", scrollToWork);
-$menuContact.addEventListener("click",scrollToContact);
-$profileButton.addEventListener("click", scrollToContact);
 $arrowButton.addEventListener("click", scrollToTop);
 $menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
 $navButton.addEventListener("click", spreadMenu);
 $menu.addEventListener("click", handleSelectedNav);
-
+$menu.addEventListener("click", scrollIntoSection)
 
 document.addEventListener("scroll", showNavBar);
 document.addEventListener("scroll", transparentProfile);
@@ -58,24 +52,12 @@ function transparentProfile () {
   }
 }
 
-function scrollToHome () {
-  $home.scrollIntoView({behavior: "smooth"})
-}
 
-function scrollToAbout () {
-  $about.scrollIntoView({behavior: "smooth"});
-}
-
-function scrollToSkills () {
-  $skills.scrollIntoView({behavior: "smooth"});
-}
-
-function scrollToWork() {
-  $myWork.scrollIntoView({behavior:"smooth"})
-}
-
-function scrollToContact(){
-  $contact.scrollIntoView({behavior:"smooth"});
+function scrollIntoSection (ev) {
+  const target = ev.target.dataset.link;
+  console.log(target)
+  const scrollToHere = document.querySelector(target);
+  scrollToHere.scrollIntoView({behavior: "smooth"})
 }
 
 function scrollToTop () {
