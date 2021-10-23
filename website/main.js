@@ -6,27 +6,37 @@ const $arrowButton = document.querySelector(".arrow-button");
 const $profile = document.querySelector(".profile");
 const $profileHeight = $profile.getBoundingClientRect().height;
 
-
+const $menu = document.querySelector(".menu");
 const $menuHome = document.querySelector(".menu--home");
 const $menuAbout = document.querySelector(".menu--about");
 const $menuSkills = document.querySelector(".menu--skills");
 const $menuMyWork = document.querySelector(".menu--my-work");
 const $menuContact = document.querySelector(".menu--contact");
 const $profileButton = document.querySelector(".profile__button");
+
+const $home = document.querySelector(".profile");
+const $about = document.querySelector(".about-me");
+const $myWork = document.querySelector(".my-work");
 const $skills = document.querySelector(".skills");
 const $contact = document.querySelector(".contact");
-const $menu = document.querySelector(".menu");
+
 const $navButton = document.querySelector(".nav_button");
 const $menuButtons = document.querySelectorAll(".menu__button");
 const $contentContainers = document.querySelectorAll(".content__container");
 const $myWorkContent = document.querySelector(".my-work__content");
 
+$menuHome.addEventListener("click", scrollToHome);
+$menuAbout.addEventListener("click", scrollToAbout);
+$menuSkills.addEventListener("click", scrollToSkills);
+$menuMyWork.addEventListener("click", scrollToWork);
 $menuContact.addEventListener("click",scrollToContact);
 $profileButton.addEventListener("click", scrollToContact);
 $arrowButton.addEventListener("click", scrollToTop);
 $menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
 $navButton.addEventListener("click", spreadMenu);
 $menu.addEventListener("click", handleSelectedNav);
+
+
 document.addEventListener("scroll", showNavBar);
 document.addEventListener("scroll", transparentProfile);
 
@@ -46,6 +56,22 @@ function transparentProfile () {
     $profile.classList.remove("profile-hide");
     $arrowButton.classList.remove("arrow-button-show");
   }
+}
+
+function scrollToHome () {
+  $home.scrollIntoView({behavior: "smooth"})
+}
+
+function scrollToAbout () {
+  $about.scrollIntoView({behavior: "smooth"});
+}
+
+function scrollToSkills () {
+  $skills.scrollIntoView({behavior: "smooth"});
+}
+
+function scrollToWork() {
+  $myWork.scrollIntoView({behavior:"smooth"})
 }
 
 function scrollToContact(){
