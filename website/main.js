@@ -7,18 +7,7 @@ const $profile = document.querySelector(".profile");
 const $profileHeight = $profile.getBoundingClientRect().height;
 
 const $menu = document.querySelector(".menu");
-const $menuHome = document.querySelector(".menu--home");
-const $menuAbout = document.querySelector(".menu--about");
-const $menuSkills = document.querySelector(".menu--skills");
-const $menuMyWork = document.querySelector(".menu--my-work");
-const $menuContact = document.querySelector(".menu--contact");
 const $profileButton = document.querySelector(".profile__button");
-
-const $home = document.querySelector(".profile");
-const $about = document.querySelector(".about-me");
-const $myWork = document.querySelector(".my-work");
-const $skills = document.querySelector(".skills");
-const $contact = document.querySelector(".contact");
 
 const $navButton = document.querySelector(".nav_button");
 const $menuButtons = document.querySelectorAll(".menu__button");
@@ -26,7 +15,7 @@ const $contentContainers = document.querySelectorAll(".content__container");
 const $myWorkContent = document.querySelector(".my-work__content");
 
 $arrowButton.addEventListener("click", scrollToTop);
-$menuButtons.forEach((menuButton)=>menuButton.addEventListener("click", filterProject))
+$menuButtons.forEach((menuButton) => menuButton.addEventListener("click", filterProject))
 $navButton.addEventListener("click", spreadMenu);
 $menu.addEventListener("click", handleSelectedNav);
 $menu.addEventListener("click", scrollIntoSection)
@@ -51,7 +40,6 @@ function transparentProfile () {
     $arrowButton.classList.remove("arrow-button-show");
   }
 }
-
 
 function scrollIntoSection (ev) {
   const target = ev.target.dataset.link;
@@ -111,33 +99,43 @@ const sections = sectionIds.map(id => document.querySelector(id));
 const navItems = sectionIds.map(id =>
   document.querySelector(`[data-link="${id}"]`)
 );
-// function selectedNavItem (selected) {
-
-// }
 
 let options = {
   root: null,
   rootMargin: '0px',
   threshold: 0.3,
 }
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('menu-selected');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('menu-selected');
+}
+
 let callback = (entries, observer) => {
   entries.forEach(entry => {
     if(!entry.isIntersecting && entry.intersectionRatio > 0){
       const index = sectionIds.indexOf(`#${entry.target.id}`);
-
-      let selectedIndex = 0;
-
       if (entry.boundingClientRect.y < 0) {
-        selectedIndex = index + 1;
+        selectedNavIndex = index + 1;
       } else {
-        selectedIndex = index - 1;
+        selectedNavIndex = index - 1;
       }
-      const navItem = navItems[selectedIndex];
-      const $selectedNavButton = document.querySelector('.menu-selected');
-      $selectedNavButton.classList.remove("menu-selected");
-      navItem.classList.add('menu-selected');
     }
   });
 };
+
 let observer = new IntersectionObserver(callback, options);
 sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+  selectNavItem(navItems[selectedNavIndex]);
+  if(window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (window.scrollY + window.innerHeight
+      === document.body.clientHeight) {
+    selectedNavIndex = navItems.length - 1;
+  }
+})
