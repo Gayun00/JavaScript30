@@ -12,6 +12,8 @@ let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
 let hue = 0;
+let direction = true;
+// globalcompositeoperation = 'multiply'
 
 $canvas.addEventListener('mousemove', draw);
 $canvas.addEventListener('mousedown', (e) => {
@@ -25,7 +27,7 @@ function draw(e) {
   if (!isDrawing) return;
   console.log(e)
   ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-  ctx.lineWidth = hue;
+
   ctx.beginPath();
   // start from
   ctx.moveTo(lastX, lastY);
@@ -39,4 +41,16 @@ function draw(e) {
   if(hue >= 360) {
     hue = 0;
   }
+
+  if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction;
+  }
+
+  if(direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--;
+  }
+
 }
+
