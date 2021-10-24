@@ -97,7 +97,7 @@ const sectionIds = [
 
 const sections = sectionIds.map(id => document.querySelector(id));
 const navItems = sectionIds.map(id =>
-  document.querySelector(`[data-link="${id}"]`)
+  document.querySelector(`[data-li nk="${id}"]`)
 );
 
 let options = {
