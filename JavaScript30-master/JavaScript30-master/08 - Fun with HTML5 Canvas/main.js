@@ -17,6 +17,7 @@ let direction = true;
 
 $canvas.addEventListener('mousemove', draw);
 $canvas.addEventListener('mousedown', (e) => {
+  console.log(e.target, 'offsetX: '+e.offsetX, 'offsetY: '+e.offsetY)
   isDrawing = true;
   [lastX, lastY] =[e.offsetX, e.offsetY];
 });
@@ -25,7 +26,6 @@ $canvas.addEventListener('mouseout', () => isDrawing = false);
 
 function draw(e) {
   if (!isDrawing) return;
-  console.log(e)
   ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
   ctx.beginPath();
