@@ -1,37 +1,26 @@
-/**
- * 각 체크박스마다 data-index를 지정한다
- * 체크한 체크박스의 data-index를 얻는다
- * keydown이벤트를 등록하여 shift가 눌렸다면,
- * 다음으로 누른 체크박스의 data-index를 얻고
- * 그 사이에 있는 모든 숫자의 체크박스를 checked로 만든다.
- * 
- * 체크박스 수대로 배열을 만들어 체크여부를 표시한다.
- * 
- */
+const $checkBoxesAll = document.querySelectorAll('input[type="checkbox"]');
+const $inbox = document.querySelector('.inbox');
 
-const $inbox = document.querySelector(".inbox");
-const $checkBoxes = document.querySelectorAll('.checkbox');
 
-let $firstChecked = 0;
-let $secondChecked = 0;
-
-$inbox.addEventListener("click", (ev) => {
+let toBeChecked = false;
+$inbox.addEventListener('click', (ev) => {
   const target = ev.target;
-  const index = target.dataset.index;
-  if(target.tagName !== 'INPUT') return;
 
-  $checkBoxes.forEach((checkbox) => {
-    if(checkbox.checked === true) {
-      $firstChecked = checkbox.dataset.index;
-    }
-})
+  if (target.tagName !== 'INPUT') return;
 
-document.addEventListener("keydown", (ev) => {
-  const key = ev.key;
-  if(key !== 'Shift') return;
-  
-  })
+  if (ev.shiftKey) {
+    $checkBoxesAll.forEach((checkBox) => {
+      if (checkBox.checked === true) {
+        toBeChecked = !toBeChecked;
+        console.log(toBeChecked)
+      }
 
-  //여기서 키가 shift이면 두번째 인덱스를 읽어보고, 있을 경우에 사이의 체크 인덱스를 true로 바꿔준다.
-  const firstChecked = document.querySelector
+      if (toBeChecked) {
+        checkBox.checked = true;
+      }
+    })
+  }
+
+
+
 })
