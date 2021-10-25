@@ -5,7 +5,7 @@ let toBeChecked = false;
 
 $inbox.addEventListener('click', (ev) => {
   const target = ev.target;
-
+  console.log(this)
   if (target.tagName !== 'INPUT') return;
 
   if (ev.shiftKey) {
