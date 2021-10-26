@@ -9,7 +9,13 @@ let played = false;
 function handlePlay (ev) {
   const target = ev.target;
   played = !played;
-  played ? $video.pause() : $video.play();
+  if (played) {
+    $video.pause();
+    stopPlaybackTime();
+  } else {
+    $video.play();
+    getPlaybackTime();
+  }
 }
 
 
@@ -31,4 +37,32 @@ function handleVolume (ev) {
 }
 
 // 재생시간별 막대 표시
-const $progress = 
+const $progress = document.querySelector(".progress__filled");
+
+let timer;
+let playTime = $video.currentTime;
+function getPlaybackTime () {
+  timer = setInterval(() => {
+    playTime = $video.currentTime;
+    console.log(playTime)
+    const duration = $video.duration;
+    const playPercentage = playTime / duration * 100;
+    $progress.style.flexBasis = `${playPercentage}%`
+  }, 1000);
+}
+// $progress.style.width = "10px"
+function stopPlaybackTime () {
+  clearInterval(timer);
+}
+
+
+//비디오 건너뛰기
+const $skipBtns = document.querySelectorAll(".player__button");
+$skipBtns.forEach(($skipBtn) => $skipBtn.addEventListener("click", skipVideo));
+
+function skipVideo (ev) {
+  const skipSec = ev.target.dataset.skip;
+  console.log(skipSec)
+  playTime = playTime + skipSec;
+}
+
