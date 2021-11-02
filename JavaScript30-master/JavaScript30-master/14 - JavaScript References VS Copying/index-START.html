@@ -19,10 +19,10 @@
     // and we want to make a copy of it.
     const team = players;
 
-    console.log(players, team)
+    // console.log(players, team)
     // You might think we can just do something like this:
     team[3] ='Lux';
-    console.log(players, team)
+    // console.log(players, team)
     // however what happens when we update that array?
 
     // now here is the problem!
@@ -35,8 +35,13 @@
  
     // one way
     const team2 = players.slice();
+    team2[1]="changed"
+    console.log(team2 === players)
+    console.log(team2[2] === players[2])
     // or create a new array and concat the old one in
     const team3 = [].concat(players);
+    team3[1]="changed"
+    // console.log(team3, players)
     // or use the new ES6 Spread
     const team4 = [...players];
 

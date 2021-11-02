@@ -58,8 +58,7 @@ const sortedNewBands = newBands.sort((a, b) => {
 })
 
 const $bandList = document.querySelector('#bands')
-console.log($bandList)
-$bandList.innerHTML = sortedNewBands.map(band => `<li>${band}</li>`);
+$bandList.innerHTML = sortedNewBands.map(band => `<li>${band}</li>`).join('');
 </script>
 
 </body>
