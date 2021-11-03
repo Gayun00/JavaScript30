@@ -182,11 +182,17 @@
     </li>
   </ul>
 <script>
-  const $timeList = document.querySelectorAll('li')
-  console.log($timeList)
-  const timeArr = [];
-  $timeList.forEach((times) => timeArr.push(times.dataset.time))
-  console.log(timeArr)
+  const $timeList = Array.from(document.querySelectorAll('li'))
+  const $times = $timeList
+    .map(node => node.dataset.time)
+    .map(timeCode => {
+      const [mins, secs] = timeCode.split(':').map(parseFloat);
+      return (mins * 60) + secs;
+
+    })
+
+
+
 </script>
 </body>
 </html>
