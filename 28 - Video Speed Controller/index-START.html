@@ -15,6 +15,25 @@
   </div>
 
 <script>
+
+  const $speedBar = document.querySelector('.speed');
+  const $speedContent = document.querySelector('.speed-bar')
+  const $video = document.querySelector('video');
+  $speedBar.addEventListener('click', (ev) => {
+    const barHeight = ev.offsetY;
+    const speed = barHeight / 410
+
+    const min = 0.4;
+    const max = 4;
+    const playbackRate = speed * (max-min) + min;
+    const playback = playbackRate.toFixed(1)
+    $speedContent.textContent = `${playback}x`
+
+    $speedContent.style.height = `${speed * 100}%`
+    $video.playbackRate = `${playback}`
+    console.log($video.playbackRate)
+  })
+
 </script>
 </body>
 </html>
