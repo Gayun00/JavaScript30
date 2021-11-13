@@ -47,7 +47,19 @@
       .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
       .join('')
   }
+
+  function setVoice() {
+    console.log('changing voice')
+    msg.voice = voice.find(voice => voice.name === this.value);
+    toggle();
+  }
+
+  function toggle(startOver = true) {
+    speechSynthesis.cancel();
+    speechSynthesis.speak(msg);
+  }
   speechSynthesis.speak(msg)
+  voiceDropdown.addEventListener('change', setVoice);
 </script>
 
 </body>
