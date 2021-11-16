@@ -1,0 +1,11 @@
+{
+  "name": "29---countdown-timer",
+  "version": "1.0.0",
+  "main": "scripts-FINISHED.js",
+  "scripts": {
+    "start": "index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
