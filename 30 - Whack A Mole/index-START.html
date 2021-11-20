@@ -47,6 +47,10 @@
     return Math.floor(Math.random() * (max - MINIMUM_HOLES) + MINIMUM_HOLES);
   }
 
+  function randomTime(max) {
+    return Math.random() * (max - MINIMUM_TIME) + MINIMUM_TIME;
+  }
+
   const timer = setTimeout(() => {
     timeOut = true;
     console.log('timeout!')
@@ -60,10 +64,6 @@
       selectedHole.classList.remove('up');
       handleHole();
     }, randomTime(1000))
-  }
-
-  function randomTime(max) {
-    return Math.random() * (max - MINIMUM_TIME) + MINIMUM_TIME;
   }
 
   function startGame() {
