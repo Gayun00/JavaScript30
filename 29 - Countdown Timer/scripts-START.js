@@ -11,7 +11,7 @@ const $timerButtons = document.querySelectorAll('.timer__button');
 
 $customForm.addEventListener('submit', handleCustomTimeInput)
 $timerButtons.forEach(($timerButton) => {
-    $timerButton.addEventListener('click',() => displayCountdown(
+    $timerButton.addEventListener('click',() => timer(
         $timerButton.dataset.time
     ))
 })
@@ -19,13 +19,21 @@ $timerButtons.forEach(($timerButton) => {
 
 function handleCustomTimeInput(e) {
     e.preventDefault();
-    displayCountdown($customTimeInput.value);
+    timer($customTimeInput.value);
 }
 
 function timer(seconds) {
-    const now = Date.now();
-    const then = seconds + now * 1000;
+    clearInterval(countdown);
 
+    const now = Date.now();
+    const then = now + seconds * 1000;
+    countdown = setInterval(() => {
+
+        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        displayCountdown(secondsLeft)
+        console.log(secondsLeft)
+        if(secondsLeft <= 0) clearInterval(countdown);
+    }, 1000)
 }
 
 function displayCountdown(seconds) {
