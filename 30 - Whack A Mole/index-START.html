@@ -37,6 +37,50 @@
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
 
+  const MINIMUM_HOLES = 1;
+  const MINIMUM_TIME = 500;
+
+  let timeOut = false;
+  let score = 0;
+
+  function randomHole(max) {
+    return Math.floor(Math.random() * (max - MINIMUM_HOLES) + MINIMUM_HOLES);
+  }
+
+  const timer = setTimeout(() => {
+    timeOut = true;
+    console.log('timeout!')
+  }, 10000)
+
+  function handleHole() {
+    if (timeOut) return;
+    const selectedHole = holes[randomHole(holes.length)];
+    selectedHole.classList.add('up');
+    setTimeout(() => {
+      selectedHole.classList.remove('up');
+      handleHole();
+    }, randomTime(1000))
+  }
+
+  function randomTime(max) {
+    return Math.random() * (max - MINIMUM_TIME) + MINIMUM_TIME;
+  }
+
+  function startGame() {
+    timeOut = false;
+    score = 0;
+    timer;
+    handleHole();
+  }
+
+  moles.forEach((mole) => mole.addEventListener('click', () => {
+    score++;
+    scoreBoard.textContent = `${score}`;
+  }))
+
+
+
+
 </script>
 </body>
 </html>
