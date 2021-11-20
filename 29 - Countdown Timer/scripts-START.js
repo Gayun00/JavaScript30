@@ -3,10 +3,13 @@ document.title = "yes!!!"
 
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
+const endTime = document.querySelector('.display__end-time');
 
 function timer(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
+    displayTimeLeft(seconds);
+    displayEndTime(then);
 
 
 
@@ -27,4 +30,11 @@ function displayTimeLeft(seconds) {
     const display = `${minutes}: ${remainderSeconds < 10 ? 0 : ''}${remainderSeconds}`;
     timerDisplay.textContent = display;
     console.log(minutes);
+}
+
+function displayEndTime(timestamp) {
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const minutes = end.getMinutes();
+    endTime.textContent = `Be Back At ${hour}:${minutes}`;
 }
