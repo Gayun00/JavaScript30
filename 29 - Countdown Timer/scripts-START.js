@@ -27,6 +27,9 @@ function timer(seconds) {
 
     const now = Date.now();
     const then = now + seconds * 1000;
+    displayCountdown(seconds)
+
+    displayEndTime(then);
     countdown = setInterval(() => {
 
         const secondsLeft = Math.round((then - Date.now()) / 1000);
@@ -39,5 +42,14 @@ function timer(seconds) {
 function displayCountdown(seconds) {
     const min = Math.floor(seconds / 60);
     const secondsLeft = seconds % 60;
-    $timerDisplay.textContent = `${min} : ${secondsLeft}`;
+    $timerDisplay.textContent = `${min < 10 ? '0' + min : min} : ${secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}`;
+}
+
+function displayEndTime(time) {
+    const date = new Date(time);
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+
+    $endTime.textContent = `${hour}시 ${minutes}분 ${seconds}초에 종료됩니다`
 }
