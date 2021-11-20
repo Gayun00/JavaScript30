@@ -54,6 +54,20 @@
   </div>
 
 <script>
+  const nav = document.querySelector('#main');
+  console.log(nav)
+  document.addEventListener('scroll', handleStickyNav);
+
+
+  function handleStickyNav() {
+    console.log(nav.offsetTop, window.scrollY)
+    if(nav.offsetTop < window.scrollY) {
+      console.log('change to sticky nav!')
+      nav.classList.add('nav-sticky')
+    } else {
+      nav.classList.remove('nav-sticky');
+    }
+  }
 
 </script>
 
